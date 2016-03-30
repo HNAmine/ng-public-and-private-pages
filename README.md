@@ -1,1 +1,1 @@
-# ng-public-and-private-pages
+# angularJS-2-start-project
