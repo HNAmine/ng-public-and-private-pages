@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './public/home', './prive/acceuil'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './LoggedInOutlet', './public/home', './prive/acceuil'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', './public/home', './prive/a
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, home_1, acceuil_1;
+    var core_1, router_1, LoggedInOutlet_1, home_1, acceuil_1;
     var AppComponent;
     return {
         setters:[
@@ -19,6 +19,9 @@ System.register(['angular2/core', 'angular2/router', './public/home', './prive/a
             },
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (LoggedInOutlet_1_1) {
+                LoggedInOutlet_1 = LoggedInOutlet_1_1;
             },
             function (home_1_1) {
                 home_1 = home_1_1;
@@ -30,22 +33,18 @@ System.register(['angular2/core', 'angular2/router', './public/home', './prive/a
             AppComponent = (function () {
                 function AppComponent() {
                 }
-                //dans le construcutor tu injectes Router
-                //ngInit tu décides pricvé ou public 
-                AppComponent.prototype.ngOnInit = function () {
-                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n    <nav>\n    <!--\n      <a [routerLink]=\"['Public']\">Public</a>\n      <a [routerLink]=\"['Prive']\">Prive</a>\n    -->\n    </nav>\n    <router-outlet></router-outlet>\n  ",
-                        directives: [router_1.ROUTER_DIRECTIVES, home_1.HomeComponent]
+                        template: "\n    <router-outlet></router-outlet>\n  ",
+                        directives: [LoggedInOutlet_1.LoggedInRouterOutlet, home_1.HomeComponent]
                     }),
                     router_1.RouteConfig([
                         {
                             path: '/public/...',
                             name: 'Public',
                             component: home_1.HomeComponent,
-                            useAsDefault: true
+                            useAsDefault: true,
                         },
                         {
                             path: '/prive',

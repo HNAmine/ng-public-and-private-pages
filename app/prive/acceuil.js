@@ -12,15 +12,6 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
     };
     var core_1, router_1;
     var AcceuilComponent;
-    function isLoggedIn() {
-        var show = true;
-        if (show == true) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
     return {
         setters:[
             function (core_1_1) {
@@ -34,19 +25,7 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
                 function AcceuilComponent(_router) {
                     this._router = _router;
                 }
-                AcceuilComponent.prototype.goHome = function () {
-                    this.auth.navigate(['Public']);
-                };
-                AcceuilComponent.prototype.ngOnInit = function () {
-                    var show = false;
-                    if (show == true) {
-                    }
-                    else {
-                        this._router.navigate(['Public']);
-                    }
-                };
                 AcceuilComponent = __decorate([
-                    router_1.CanActivate(function () { return isLoggedIn(); }),
                     core_1.Component({
                         selector: 'home-prive',
                         template: "<h1>For admisable user !</h1>\n             <button (click)=\"goHome()\">\n             Go Home !\n             </button>\n  ",
